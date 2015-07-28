@@ -8,10 +8,10 @@ function sum() {
 
 Function.prototype.myBind = function (context) {
   var fn = this;
-  var argsArray = Array.prototype.slice.call(arguments, 1);
+  var bindArgs = Array.prototype.slice.call(arguments, 1);
   return function () {
-    var secondArgsArray = [].slice.call(arguments, argsArray.length);
-    fn.apply(context, argsArray.concat(secondArgsArray));
+    var callArgs = [].slice.call(arguments, bindArgs.length);
+    fn.apply(context, bindArgs.concat(callArgs));
   };
 }
 
@@ -38,7 +38,7 @@ Function.prototype.curry = function (numArgs) {
   return function _collectArgs (arg) {
     arrayArgs.push(arg);
     if (arrayArgs.length === numArgs) {
-      return fn.apply(fn, arrayArgs);
+      return fn.apply(this, arrayArgs);
     } else {
       return _collectArgs;
     }
