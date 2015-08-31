@@ -1,5 +1,9 @@
 # Asteroids
-### Features
+
+### [Live!](https://erezbosch.github.io/asteroids)
+
+A browser game made with JavaScript and HTML5 Canvas. Features include: 
+
 * Asteroids fly across the screen and wrap around
 * So does your ship
 * Use W to move forward, A to turn left, D to turn right, S to brake
